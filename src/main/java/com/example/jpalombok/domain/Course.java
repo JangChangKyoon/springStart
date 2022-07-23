@@ -1,10 +1,12 @@
 package com.example.jpalombok.domain;
 
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@NoArgsConstructor // 기본생성자를 대신 생성해줍니다.
+@Getter //Lombok : getter를 생략 가능하도록 하는 어노이션
+@NoArgsConstructor // Lombok : 기본생성자를 대신 생성해줍니다.
 @Entity
 //@Entity // 테이블임을 나타냅니다.
 public class Course extends Timestamped {
@@ -19,22 +21,23 @@ public class Course extends Timestamped {
     @Column(nullable = false)
     private String tutor;
 
-    public String getTitle() {
-        return this.title;
-    }
-
-    public String getTutor() {
-        return this.tutor;
-    }
+//    Lombok으로 생략가능
+//    public String getTitle() {
+//        return this.title;
+//    }
+//    public String getTutor() {
+//        return this.tutor;
+//    }
+//    public Long getId() {
+//        return this.id;
+//    }
 
     public Course(String title, String tutor) {
         this.title = title;
         this.tutor = tutor;
     }
 
-    public Long getId() {
-        return this.id;
-    }
+
     //update는 서비스로만 구현 가능
     public void update(Course course) {
         this.title = course.title;
