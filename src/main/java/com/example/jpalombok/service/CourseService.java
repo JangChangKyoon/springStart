@@ -2,6 +2,7 @@ package com.example.jpalombok.service;
 
 import com.example.jpalombok.domain.Course;
 import com.example.jpalombok.domain.CourseRepository;
+import com.example.jpalombok.domain.CourseRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -23,11 +24,11 @@ public class CourseService {
 //    }
 
     @Transactional // SQL 쿼리가 일어나야 함을 스프링에게 알려줌
-    public Long update(Long id, Course course) {
+    public Long update(Long id, CourseRequestDto requestDto) { //Dto로 대체 Course course) {
         Course course1 = courseRepository.findById(id).orElseThrow(
                 () -> new IllegalArgumentException("해당 아이디가 존재하지 않습니다.")
         );
-        course1.update(course);
+        course1.update(requestDto);//Dto로 대체 course);
         return course1.getId();
     }
 }

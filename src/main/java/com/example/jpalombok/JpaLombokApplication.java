@@ -2,6 +2,7 @@ package com.example.jpalombok;
 
 import com.example.jpalombok.domain.Course;
 import com.example.jpalombok.domain.CourseRepository;
+import com.example.jpalombok.domain.CourseRequestDto;
 import com.example.jpalombok.service.CourseService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -34,8 +35,9 @@ public class JpaLombokApplication {
 				System.out.println(course.getTutor());
 			}
 			// 데이터 변경 update
-			Course new_course = new Course("웹개발의 봄, Spring", "임민영");
-			courseService.update(1L, new_course);
+			// Dto로 대체 Course new_course = new Course("웹개발의 봄, Spring", "임민영");
+			CourseRequestDto requestDto = new CourseRequestDto("웹개발의 봄, Spring", "임민영");
+			courseService.update(1L, requestDto); //Dto로 대체 new_course);
 			courseList = courseRepository.findAll();
 			for (int i=0; i<courseList.size(); i++) {
 				Course course = courseList.get(i);
@@ -44,7 +46,7 @@ public class JpaLombokApplication {
 				System.out.println(course.getTutor());
 			}
 		//데이터삭제
-		courseRepository.deleteAll();
+		//courseRepository.deleteAll();
 
 		};
 	}

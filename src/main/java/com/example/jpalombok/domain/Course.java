@@ -39,9 +39,9 @@ public class Course extends Timestamped {
 
 
     //update는 서비스로만 구현 가능
-    public void update(Course course) {
-        this.title = course.title;
-        this.tutor = course.tutor;
+    public void update(CourseRequestDto requestDto) {//Dto로 대체 Course course) {
+        this.title = requestDto.getTitle(); //Dto로 대체 course.title;
+        this.tutor = requestDto.getTutor(); //Dto로 대체 course.tutor;
     }
 
 
