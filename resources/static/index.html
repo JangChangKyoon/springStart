@@ -341,13 +341,47 @@
         // 메모를 불러와서 보여줍니다.
         function getMessages() {
             // 1. 기존 메모 내용을 지웁니다.
+            $('#cards-box').empty();
             // 2. 메모 목록을 불러와서 HTML로 붙입니다.
+            $.ajax({
+                type: 'GET',
+                url: '/api/memos',
+                success: function (response) {
+                    for (let i = 0; i < response.length; i++) {
+                        let message = response[i];
+                        let id = message['id'];
+                        let username = message['username'];
+                        let contents = message['contents'];
+                        let modifiedAt = message['modifiedAt'];
+                        //아래 addHTMl 파라미터에 넣저줘
+                        addHTML(id, username, contents, modifiedAt);
+
+                        //json을 불러오는 방식
+                        //let id = memo.id;
+                        //let username = memo.username;
+                        //let contents = memo.contents;
+                        //let modifiedAt = memo.modifiedAt;
+
+
+                    }
+                }
+            })
         }
 
-        // 메모 하나를 HTML로 만들어서 body 태그 내 원하는 곳에 붙입니다.
+
+        //위 response로 받아온 값을 받아옴옴
+        // 메모 나를 HTML로 만들어서 body 태그 내 원하는 곳에 붙입니다.
         function addHTML(id, username, contents, modifiedAt) {
             // 1. HTML 태그를 만듭니다.
             // 2. #cards-box 에 HTML을 붙인다.
+
+
+
+
+
+
+
+
         }
 
         // 메모를 생성합니다.
@@ -368,7 +402,7 @@
                 //주소
                 url: "/api/memos",
                 contentType: "application/json", // JSON 형식으로 전달함을 알리기
-                //string의 값을 json문자열로 변환
+                //string의 값을 JSONLint 변환
                 data: JSON.stringify(data),
                 //성공했을 때 반응
                 success: function (response) {
