@@ -283,17 +283,34 @@
 
 
     <script>
-        // 개발스팩
+        // 클라이언트 설계하기
+        // - 필요한 기능 살펴보기
+        // 접속하자마자 메모 전체 목록 조회하기
+        //     1. GET API 사용해서 메모 목록 불러오기
+        //     2. 메모 마다 HTML 만들고 붙이기
+        // 메모 생성하기
+        //     1. 사용자가 입력한 메모 내용 확인하기 let contents = $('#contents').val();
+        //     2. POST API 사용해서 메모 신규 생성하기 isValidContents
+        //     3. 랜덤한 username 만들기 let username = genRandomName(10);
+        //     4. 전달할 data 를 JSON으로 만들기 let data = {'username': username, 'contents': contents};
+        //     5. POST API 사용해서 메모 신규 생성하기 $.ajax post
+
+        // 메모 조회하기 - getMessages 함수 - 1
+        //      1. 기존 메모 제거하기 $('#cards-box').empty();
+        //      2. GET API 사용해서 메모 목록 불러오기 $.ajax get
+        //      3. 메모마다 HTML 만들고 붙이는 함수 만들기 function addHTML
+        //      Timestamped, Week03Application 수정하기 Getter
+        //      반복문 안에서 addHTML 호출
 
         // 메모 변경하기
-        // 1. 작성 대상 메모의 username과 contents 를 확인 : addHtml
-        // 2. 작성한 메모가 올바른지 확인 : isValidContents
-        // 3. 전달할 data 를 JSON으로 바꾸기 : let data = {'username': username, 'contents': contents};
-        // 4. PUT /api/memos/{id} 에 data를 전달 : PUT /api/memos/{id} 에 data를 전달, submitEdit 함수 완성
+        //      1. 작성 대상 메모의 username과 contents 를 확인 : let username = $(`#${id}-username`), let contents = $(`#${id}-textarea`).val().trim();, addHtml
+        //      2. 작성한 메모가 올바른지 확인 : isValidContents
+        //      3. 전달할 data 를 JSON으로 바꾸기 : let data = {'username': username, 'contents': contents};
+        //      4. PUT /api/memos/{id} 에 data를 전달 : PUT /api/memos/{id} 에 data를 전달, submitEdit 함수 완성
 
         // 메모 삭제하기 - deleteOne 함수
-        // DELETE API 사용 : function deleteOne(id)
-        // 클라이언트 완성
+        //      DELETE API 사용 : function deleteOne(id)
+        //      클라이언트 완성
 
 
 

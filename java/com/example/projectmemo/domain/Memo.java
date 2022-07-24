@@ -1,9 +1,23 @@
+//Memo 클래스 만들기
+//    메모는 1) 익명의 작성자 이름(username), 2) 메모 내용(contents) 으로 이루어져 있습니다.
+//MemoController.java 만들기 : CRD
+//domain 패키지를 만듭니다.
+//Timestamped.java
+//MemoRepository 인터페이스 만들기
+//MemoRequestDto 클래스 만들기
+//MemoService 클래스 만들기 : U
+//Memo.java에 update 메소드 추가하기
+
 package com.example.projectmemo.domain;
 
+import com.example.projectmemo.domain.MemoRequestDto;
+import com.example.projectmemo.domain.Timestamped;
 import lombok.Getter;
+
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+
 
 @NoArgsConstructor // 기본생성자를 만듭니다.
 @Getter
