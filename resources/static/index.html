@@ -284,13 +284,16 @@
 
     <script>
         // 개발스팩
+
         // 메모 변경하기
-        // 1. 작성 대상 메모의 username과 contents 를 확인
-        // 2. 작성한 메모가 올바른지 확인
-        // 3. 전달할 data 를 JSON으로 바꾸기
-        // 4. PUT /api/memos/{id} 에 data를 전달
+        // 1. 작성 대상 메모의 username과 contents 를 확인 : addHtml
+        // 2. 작성한 메모가 올바른지 확인 : isValidContents
+        // 3. 전달할 data 를 JSON으로 바꾸기 : let data = {'username': username, 'contents': contents};
+        // 4. PUT /api/memos/{id} 에 data를 전달 : PUT /api/memos/{id} 에 data를 전달, submitEdit 함수 완성
 
-
+        // 메모 삭제하기 - deleteOne 함수
+        // DELETE API 사용 : function deleteOne(id)
+        // 클라이언트 완성
 
 
 
@@ -372,7 +375,7 @@
                         let id = message['id'];
                         let username = message['username'];
                         let contents = message['contents'];
-                        let modifiedAt = message['modifiedAt'];
+                        let modifiedAt = message['modifiedAt'];// 내림차순
                         //아래 addHTMl 파라미터에 넣저줘
                         addHTML(id, username, contents, modifiedAt);
 
@@ -480,8 +483,16 @@
             });
         }
         // 메모를 삭제합니다.
+        // 1. DELETE /api/memos/{id} 에 요청해서 메모를 삭제합니다.
         function deleteOne(id) {
-            // 1. DELETE /api/memos/{id} 에 요청해서 메모를 삭제합니다.
+            $.ajax({
+                type: "DELETE",
+                url: `/api/memos/${id}`,
+                success: function (response) {
+                    alert('메시지 삭제에 성공하였습니다.');
+                    window.location.reload();
+                }
+            })
         }
     </script>
 </head>
