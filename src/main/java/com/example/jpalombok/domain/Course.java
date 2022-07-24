@@ -21,6 +21,11 @@ public class Course extends Timestamped {
     @Column(nullable = false)
     private String tutor;
 
+    public Course(CourseRequestDto requestDto) {
+        this.title = requestDto.getTitle();
+        this.tutor = requestDto.getTutor();
+    }
+
 //    Lombok으로 생략가능
 //    public String getTitle() {
 //        return this.title;
