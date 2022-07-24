@@ -1,3 +1,4 @@
+<!--html 기초-->
 <!-- - h1~h6-->
 <!--→ headline의 약자, 신문 제목 같은 녀석이에요.-->
 <!-- - div-->
@@ -16,6 +17,57 @@
 <!-- - id: HTML 파일을 통틀어 단 하나만 존재합니다. #으로 표시합니다. (#contents)-->
 <!-- - class: 중복 적용이 가능합니다. .으로 표시합니다. (.area-write)-->
 
+<!--자바스크립트 기초-->
+<!--조건반복문-->
+<!--let fruits = ['사과', '딸기', '수박']; // List 보다 편하게 사용할 수 있습니다.-->
+<!--for (let i=0; i<fruits.length; i++) {-->
+<!--let fruit = fruits[i];-->
+<!--console.log(fruit == '수박');-->
+<!--}-->
+
+<!--조건반복문응용-->
+<!--let fruits = ['사과', '딸기', '수박'];-->
+<!--function countFruit(name) {-->
+<!--    let cnt = 0;-->
+<!--    for (let i =0; i<fruit.length; i++){-->
+<!--        let f = fruits[i];-->
+<!--        if (f == name) {-->
+<!--            cnt++;-->
+<!--        }-->
+<!--    }-->
+<!--}-->
+<!--return cnt;-->
+<!--함수-->
+<!--function sample() {-->
+<!--alert('얼럿!');-->
+<!--}-->
+
+<!--백틱-->
+<!--let name = '내 이름';-->
+<!--let text = `${name}님의 스프링 5주 완주를 축하합니다!`;-->
+<!--console.log(text);-->
+
+<!--제이쿼리기초-->
+<!--$('#post-box').show();-->
+<!--    * 창을 나타나게-->
+<!--$('#post-box').hide();-->
+<!--    * 창을 사라지게-->
+<!--$('#post-url').val();-->
+<!--    * 인픗태그 값을 가져옴-->
+<!--$('#post-url').val('new text');-->
+<!--    * 인픗태그 값을 삽입-->
+<!--$('#cards-box').empty();-->
+<!--$('#cards-box').append(`<div class="card">-->
+<!--    <img class="card-img-top"-->
+<!--         src="https://www.eurail.com/content/dam/images/eurail/Italy%20OCP%20Promo%20Block.adaptive.767.1535627244182.jpg"-->
+<!--         alt="Card image cap">-->
+<!--    <div class="card-body">-->
+<!--        <a href="#" class="card-title">여기 기사 제목이 들어가죠</a>-->
+<!--        <p class="card-text">기사의 요약 내용이 들어갑니다. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세 무궁화 삼천리 화려강산...</p>-->
+<!--        <p class="card-text comment">여기에 코멘트가 들어갑니다.</p>-->
+<!--    </div>-->
+<!--</div>`);-->
+
 
 
 
@@ -26,9 +78,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Timeline Service</title>
-
+<!--    제이쿼리-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+
+
     <script>
         $(document).ready(function () {
             getMessages();
