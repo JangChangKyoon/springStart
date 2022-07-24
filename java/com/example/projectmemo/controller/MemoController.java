@@ -22,12 +22,14 @@ public class MemoController {
 
 //    APT설계
 //    메모 생성하기	POST	/api/memos	Memo
+      // ARC의 바디에 json 데이터를 넣어주어야 하마.
 //    메모 조회하기	GET	/api/memos	List<Memo>
 //    메모 변경하기	PUT	/api/memos/{id}	Long
 //    메모 삭제하기	DELETE	/api/memos/{id}	Long
-
+      //{}안에 id값을 입력하여 해당 id데이터가 삭제되도록 함.
     @PostMapping("/api/memos")
     // 생성할 메모의 데이터를 가져오기 위해서 @RequestBody MemoRequestDto을 가져옴
+    // @RequestBody : 클라이언트가 보낸 데이터를 파라미터에 자동으로 넣어줌
     public Memo createMemo(@RequestBody MemoRequestDto requestDto) {
         //Memo 클래스에서 생성자를 가져옴
         Memo memo = new Memo(requestDto);
@@ -46,6 +48,12 @@ public class MemoController {
         //클래서 MemoRepositoy에서 기능 가져오기
         //@PathVariable Long id : id는 위 주소에 있는 것을 변수로 가져오는 것
         memoRepository.deleteById(id);
+        return id;
+    }
+
+    @PutMapping("/api/memos/{id}")
+    public Long updateMemo(@PathVariable Long id, @RequestBody MemoRequestDto requestDto) {
+        memoService.update(id, requestDto);
         return id;
     }
 }
