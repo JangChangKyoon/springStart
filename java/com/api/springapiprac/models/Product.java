@@ -112,6 +112,11 @@ public class Product extends Timestamped{
         this.lprice = requestDto.getLprice();
         this.myprice = 0;
     }
+    //scheduler 관련
+    public void updateByItemDto(ItemDto itemDto) {
+        this.lprice = itemDto.getLprice();
+    }
+
 
     // 관심 가격 변경 시 이용합니다.
     // 선행작업 DTO
