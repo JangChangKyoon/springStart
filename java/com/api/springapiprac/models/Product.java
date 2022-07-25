@@ -60,6 +60,11 @@
 //    for 문마다 itemDto를 꺼내서 HTML 만들고 검색결과 목록에 붙이기!$('#search-result-box').append(tempHtml);
 //    addHTML 완성하기function addHTML(itemDto)
 //    execSearch, addHTML 완성
+//관심 상품 등록하기
+//        관심 상품 생성 요청addProduct(itemDto)
+//        modal 뜨게 하기
+//        targetId = response.id
+//        addProduct 함수 완성
 
 package com.api.springapiprac.models; //function execSearch()
 
