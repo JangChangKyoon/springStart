@@ -20,9 +20,26 @@
 //        - ItemDto: 검색 결과 주고받기
 
 
+//1. 관심상품 조회하기
+//    producRestController : 관심상품 응답 처리
+//    Product : 맵버변수 설정
+//    ProductRepository : 관심상품 조회, 저장
+//    Timestamped
+//    main 설정
+//2. 관심상품등록하기
+//    ProductRequestDto: 관심 상품 등록하기
+//    ProductMypriceRequestDto: 관심 가격 변경하기
+//    product 보강 : Product(ProductRequestDto requestDto), update(ProductMypriceRequestDto requestDto)
+//    ProductSevice 업데이트
+//    producRestController 개선 : Product createProduct
+
+
 
 package com.api.springapiprac.models;
 
+import com.api.springapiprac.models.ProductMypriceRequestDto;
+import com.api.springapiprac.models.ProductRequestDto;
+import com.api.springapiprac.models.Timestamped;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -42,19 +59,33 @@ public class Product extends Timestamped{
     @Column(nullable = false)
     private String title;
 
-    //사진
     @Column(nullable = false)
     private String image;
 
-    //하이퍼링크
     @Column(nullable = false)
     private String link;
 
-    //최저가
     @Column(nullable = false)
     private int lprice;
 
-    //내가 설정한 가격
     @Column(nullable = false)
     private int myprice;
+
+    // 관심 상품 생성 시 이용합니다.
+    // 선행작업 DTO
+    public Product(ProductRequestDto requestDto) {
+        this.title = requestDto.getTitle();
+        this.image = requestDto.getImage();
+        this.link = requestDto.getLink();
+        this.lprice = requestDto.getLprice();
+        this.myprice = 0;
+    }
+
+    // 관심 가격 변경 시 이용합니다.
+    // 선행작업 DTO
+    public void update(ProductMypriceRequestDto requestDto) {
+        this.myprice = requestDto.getMyprice();
+    }
 }
+
+
