@@ -51,8 +51,17 @@
 //    NaverShopSearch 컴포넌트 등록하기
 //      @Component입력(스프링에 권한 주기)
 //    SearchRequestController 만들기
+//상품 검색 기능 만들기
+//    execSearch, addHTML 함수 만들기
+//    검색창 입력값 가져오기 let query = $('#query').val();
+//        브라우저에서 검사를 눌러서 태그(query) 확인
+//    색창 입력값을 검사하고, 입력하지 않았을 경우 $('#query').focus();
+//    GET /api/search?query=${query} 요청
+//    for 문마다 itemDto를 꺼내서 HTML 만들고 검색결과 목록에 붙이기!$('#search-result-box').append(tempHtml);
+//    addHTML 완성하기function addHTML(itemDto)
+//    execSearch, addHTML 완성
 
-package com.api.springapiprac.models;
+package com.api.springapiprac.models; //function execSearch()
 
 import com.api.springapiprac.models.ProductMypriceRequestDto;
 import com.api.springapiprac.models.ProductRequestDto;
