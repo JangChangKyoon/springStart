@@ -43,7 +43,14 @@
 //        6. 내용 복사하여 build.gradle > dependencies 안에 붙여넣기
 //        7. dependencies 옆의 Run 버튼 클릭
 //        8. 에디터 오른쪽 탭 gradle 새로고침
-
+//    ItemDto 생성하기
+//    romJSONtoItems 메소드 만들기
+//키워드로 상품 검색하기 - 네이버 API와 서비스 연결하기
+//        1. 사용자가 검색어를 입력하면, 컨트롤러가 그것을 전달받습니다.
+//        2. 전달받은 검색어로 네이버 API에 요청하고, 그 결과를 사용자에게 응답합니다.
+//    NaverShopSearch 컴포넌트 등록하기
+//      @Component입력(스프링에 권한 주기)
+//    SearchRequestController 만들기
 
 package com.api.springapiprac.models;
 
@@ -52,6 +59,7 @@ import com.api.springapiprac.models.ProductRequestDto;
 import com.api.springapiprac.models.Timestamped;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 

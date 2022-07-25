@@ -4,11 +4,13 @@ import com.api.springapiprac.models.ItemDto;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.http.*;
+import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class NaverShopSearch {
     //(String query) : 검색어를 받는다. -> rest.exchange에 반영
     public String search(String query) {
@@ -29,6 +31,7 @@ public class NaverShopSearch {
         return response;
     }
 
+    //ItemDto 클래스와 연결
     public List<ItemDto> fromJSONtoItems(String result) {
         JSONObject rjson = new JSONObject(result);
         JSONArray items  = rjson.getJSONArray("items");
