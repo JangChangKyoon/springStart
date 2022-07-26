@@ -20,6 +20,10 @@ public class Review extends Timestamped {
     @Column(nullable = false)
     private String author;
 
+    public Long getId() {
+        return this.id;
+    }
+
     public String getTitle() {
         return this.title;
     }
@@ -36,5 +40,11 @@ public class Review extends Timestamped {
         this.title = title;
         this.content = content;
         this.author = author;
+    }
+
+    public void update(Review review) {
+        this.title = review.title;
+        this.content = review.content;
+        this.author = review.author;
     }
 }
