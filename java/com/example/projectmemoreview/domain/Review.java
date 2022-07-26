@@ -1,9 +1,11 @@
 package com.example.projectmemoreview.domain;
 
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+@Getter // Getter 생략가능하게 함.
 @NoArgsConstructor // 기본생성자를 대신 생성해줍니다.
 @Entity // 테이블임을 나타냅니다.
 public class Review extends Timestamped {
@@ -20,31 +22,37 @@ public class Review extends Timestamped {
     @Column(nullable = false)
     private String author;
 
-    public Long getId() {
-        return this.id;
-    }
-
-    public String getTitle() {
-        return this.title;
-    }
-
-    public String getContent() {
-        return this.content;
-    }
-
-    public String getAuthor() {
-        return this.author;
-    }
+//    @Getter로 생략 가능
+//    public Long getId() {
+//        return this.id;
+//    }
+//
+//    public String getTitle() {
+//        return this.title;
+//    }
+//
+//    public String getContent() {
+//        return this.content;
+//    }
+//
+//    public String getAuthor() {
+//        return this.author;
+//    }
 
     public Review(String title, String content, String author) {
         this.title = title;
         this.content = content;
         this.author = author;
     }
-
-    public void update(Review review) {
-        this.title = review.title;
-        this.content = review.content;
-        this.author = review.author;
+//    DTO로 변경 전
+//    public void update(Review review) {
+//        this.title = review.title;
+//        this.content = review.content;
+//        this.author = review.author;
+//    }
+        public void update(ReviewRequestDto requestDto) {
+        this.title = requestDto.getTitle();
+        this.content = requestDto.getContent();
+        this.author = requestDto.getContent();
     }
 }

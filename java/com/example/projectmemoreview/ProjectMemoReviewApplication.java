@@ -2,6 +2,7 @@ package com.example.projectmemoreview;
 
 import com.example.projectmemoreview.domain.Review;
 import com.example.projectmemoreview.domain.ReviewRepository;
+import com.example.projectmemoreview.domain.ReviewRequestDto;
 import com.example.projectmemoreview.sevice.ReviewService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -35,8 +36,8 @@ public class ProjectMemoReviewApplication {
                 System.out.println(review.getAuthor());
 
             }
-            Review new_review = new Review("노인과바다", "인생의의미","헤밍웨이");
-            reviewService.update(1L, new_review);
+            ReviewRequestDto requestDto = new ReviewRequestDto("노인과바다", "인생의의미","헤밍웨이");
+            reviewService.update(1L, requestDto);
             reviewList = reviewRepository.findAll();
             for (int i=0; i<reviewList.size(); i++) {
                 Review review = reviewList.get(i);
