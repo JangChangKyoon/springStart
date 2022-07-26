@@ -22,6 +22,9 @@ public class Review extends Timestamped {
     @Column(nullable = false)
     private String author;
 
+    @Column(nullable = false)
+    private Long password;
+
 //    @Getter로 생략 가능
 //    public Long getId() {
 //        return this.id;
@@ -39,20 +42,41 @@ public class Review extends Timestamped {
 //        return this.author;
 //    }
 
-    public Review(String title, String content, String author) {
-        this.title = title;
-        this.content = content;
-        this.author = author;
+//    public Review(String title, String content, String author) {
+//        this.title = title;
+//        this.content = content;
+//        this.author = author;
+//    }
+
+    public Review(ReviewRequestDto requestDto) {
+        this.title = requestDto.getTitle();
+        this.content = requestDto.getContent();
+        this.author = requestDto.getAuthor();
+        this.password = requestDto.getPassword();
     }
+
+//    public Review(ShowDto requestDto) {
+//        this.title = requestDto.getTitle();
+//        this.content = requestDto.getContent();
+//        this.author = requestDto.getAuthor();
+//    }
+
 //    DTO로 변경 전
 //    public void update(Review review) {
 //        this.title = review.title;
 //        this.content = review.content;
 //        this.author = review.author;
 //    }
-        public void update(ReviewRequestDto requestDto) {
+    public void update(ReviewRequestDto requestDto) {
         this.title = requestDto.getTitle();
         this.content = requestDto.getContent();
-        this.author = requestDto.getContent();
+        this.author = requestDto.getAuthor();
     }
+
+//    public Review(ReviewRequestDto requestDto2) {
+//        this.title = requestDto2.getTitle();
+//        this.content = requestDto2.getContent();
+//        this.author = requestDto2.getAuthor();
+//        this.password = requestDto2.getPassword();
+//    }
 }

@@ -4,6 +4,7 @@ import com.example.projectmemoreview.domain.Review;
 import com.example.projectmemoreview.domain.ReviewRepository;
 
 import com.example.projectmemoreview.domain.ReviewRequestDto;
+import com.example.projectmemoreview.domain.ShowDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -34,4 +35,13 @@ public class ReviewService {
         review1.update(requestDto);
         return review1.getId();
     }
+
+//    @Transactional
+//    public ShowDto findbyid(Long id) {
+//        Review review1 = reviewRepository.findById(id).orElseThrow(
+//                () -> new IllegalArgumentException("해당 아이디가 존재하지 않습니다.")
+//        );
+//        return new ShowDto(review1);
+//    }
+
 }
