@@ -28,13 +28,21 @@ public class ReviewService {
 //    }
 
     @Transactional // SQL 쿼리가 일어나야 함을 스프링에게 알려줌
-    public Long update(Long id, ReviewRequestDto requestDto) {
+    public Review update(Long id, ReviewRequestDto requestDto) {
         Review review1 = reviewRepository.findById(id).orElseThrow(
                 () -> new IllegalArgumentException("해당 아이디가 존재하지 않습니다.")
         );
-        review1.update(requestDto);
-        return review1.getId();
+        review1.updateSevice(requestDto);
+        return review1;
     }
+}
+//    public Long patch(Long id, ReviewRequestDto requestDto) {
+//        Review patch = reviewRepository.findById(id).orElseThrow(
+//                () -> new IllegalArgumentException("해당 아이디가 존재하지 않습니다.")
+//        );
+//        return
+//    }
+//}
 
 //    @Transactional
 //    public ShowDto findbyid(Long id) {
@@ -44,4 +52,4 @@ public class ReviewService {
 //        return new ShowDto(review1);
 //    }
 
-}
+

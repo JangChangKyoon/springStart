@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
+import java.time.LocalDateTime;
+
 @EnableJpaAuditing
 @NoArgsConstructor //기본생성자 자동완성
 @Getter //getter 생략
@@ -14,17 +16,23 @@ public class ReviewRequestDto extends Timestamped {
     private String author;
     private Long password;
 
-    public ReviewRequestDto(String title, String content, String author, Long password) {
+    private LocalDateTime createdAt;
+
+    private LocalDateTime modifiedAt;
+
+    public ReviewRequestDto(String title, String content, String author, Long password){//, Timestamped createAt, Timestamped modifiredAt) {
         this.title = title;
         this.content = content;
         this.author = author;
         this.password = password;
+//        this.createdAt = createAt;
+//        this.modifiedAt = modifiredAt;
     }
-
+}
 //    public ReviewRequestDto(String title, String content, String author, String password) {
 //        this.title = title;
 //        this.content = content;
 //        this.author = author;
 //        this.password = password;
 //    }
-}
+

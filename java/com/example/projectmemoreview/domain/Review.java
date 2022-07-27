@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Getter // Getter 생략가능하게 함.
 @NoArgsConstructor // 기본생성자를 대신 생성해줍니다.
@@ -24,6 +25,10 @@ public class Review extends Timestamped {
 
     @Column(nullable = false)
     private Long password;
+
+
+
+
 
 //    @Getter로 생략 가능
 //    public Long getId() {
@@ -48,6 +53,18 @@ public class Review extends Timestamped {
 //        this.author = author;
 //    }
 
+
+
+
+
+    //DTO가 ETITY에 데이터를 전달하는 과정
+    //     public ReviewRequestDto(String title, String content, String author, Long password){//, Timestamped createAt, Timestamped modifiredAt) {
+    //        this.title = title;
+    //        this.content = content;
+    //        this.author = author;
+    //        this.password = password;
+
+
     public Review(ReviewRequestDto requestDto) {
         this.title = requestDto.getTitle();
         this.content = requestDto.getContent();
@@ -67,7 +84,7 @@ public class Review extends Timestamped {
 //        this.content = review.content;
 //        this.author = review.author;
 //    }
-    public void update(ReviewRequestDto requestDto) {
+    public void updateSevice(ReviewRequestDto requestDto) {
         this.title = requestDto.getTitle();
         this.content = requestDto.getContent();
         this.author = requestDto.getAuthor();
