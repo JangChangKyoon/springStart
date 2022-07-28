@@ -14,6 +14,6 @@ setting/auto import :
 setting/annotation processors
 - Enable annotation processing 체크
 
-dependencies 추가 문구
+dependencies 추가(그리고 한번 재생시키기)
 // https://mvnrepository.com/artifact/org.json/json
 - implementation group: 'org.json', name: 'json', version: '20220320'
