@@ -1,5 +1,6 @@
-package com.example.springadvanced;
+package com.example.springadvanced.model;
 
+import com.example.springadvanced.dto.ProductRequestDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

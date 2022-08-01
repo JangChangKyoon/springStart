@@ -1,4 +1,4 @@
-package com.example.springadvanced;
+package prac.F_JpaAdded.dto;
 
 import lombok.Getter;
 
