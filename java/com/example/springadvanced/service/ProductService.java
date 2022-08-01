@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 
+
+
 @Service
 public class ProductService {
 
@@ -21,7 +23,7 @@ public class ProductService {
     }
 
     public Product createProduct(ProductRequestDto requestDto, Long userId ) {
-// 요청받은 DTO 로 DB에 저장할 객체 만들기
+        // 요청받은 DTO 로 DB에 저장할 객체 만들기
         Product product = new Product(requestDto, userId);
 
         productRepository.save(product);
@@ -43,6 +45,10 @@ public class ProductService {
     // 회원 ID 로 등록된 상품 조회
     public List<Product> getProducts(Long userId) {
         return productRepository.findAllByUserId(userId);
-        //return productRepository.findAllByUserId(userId);
+    }
+
+    // 모든 상품 조회 (관리자용)
+    public List<Product> getAllProducts() {
+        return productRepository.findAll();
     }
 }
