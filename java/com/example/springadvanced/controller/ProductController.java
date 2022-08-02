@@ -4,14 +4,15 @@ package com.example.springadvanced.controller;
 import com.example.springadvanced.dto.ProductMypriceRequestDto;
 import com.example.springadvanced.dto.ProductRequestDto;
 import com.example.springadvanced.model.Product;
+import com.example.springadvanced.model.UserRoleEnum;
 import com.example.springadvanced.security.UserDetailsImpl;
 import com.example.springadvanced.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
 
 @RestController // JSON으로 데이터를 주고받음을 선언합니다.
 public class ProductController {
@@ -55,6 +56,7 @@ public class ProductController {
     }
 
     // (관리자용) 등록된 모든 상품 목록 조회
+    @Secured(UserRoleEnum.Authority.ADMIN)//.getAuthority())//("ROLE_ADMIN")//UserRollEnum에서 가져옴
     @GetMapping("/api/admin/products")
     public List<Product> getAllProducts() {
         return productService.getAllProducts();
