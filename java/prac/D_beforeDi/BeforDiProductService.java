@@ -1,5 +1,7 @@
 package prac.D_beforeDi;
 
+import java.sql.SQLException;
+
 public class BeforDiProductService {
 //
 //    // 멤버 변수 선언

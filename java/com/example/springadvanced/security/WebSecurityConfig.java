@@ -39,6 +39,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 // 회원 관리 처리 API 전부를 login 없이 허용
                 .antMatchers("/user/**").permitAll()
                 .antMatchers("/static/**").permitAll()
+                .antMatchers("/api/**").permitAll()
 // 그 외 어떤 요청이든 '인증'
                 .anyRequest().authenticated()
                 .and()
@@ -57,7 +58,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     // [로그아웃 기능]
                     .logout()
     // 로그아웃 요청 처리 URL
-                    .logoutUrl("/user/logout")
+                    .logoutUrl("/user/logout") // 로그아웃 처리 URL
+                    .logoutSuccessUrl("/user/login") // 로그아웃 성공 후 이동페이지
+                    .deleteCookies("JSESSIONID", "remember - me") // 로그아웃 후 해당 쿠키 삭제
+//                    .addLogoutHandler(logoutHandler()) // 로그아웃 핸들러
                     .permitAll()
                 .and()
                     .exceptionHandling()

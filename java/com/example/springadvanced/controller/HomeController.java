@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HomeController {
     @GetMapping("/")
     public String home(Model model, @AuthenticationPrincipal UserDetailsImpl userDetails) {
+        // UserDetailsImpl에서 유저 정보 가져오기
         model.addAttribute("username", userDetails.getUsername());
 
         if (userDetails.getUser().getRole() == UserRoleEnum.ADMIN) {

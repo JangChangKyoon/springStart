@@ -13,7 +13,7 @@ import java.util.Collection;
 public class UserDetailsImpl implements UserDetails {
 
     private final Users user;
-
+    //HomeController에 유저 정보 보내주기
     public UserDetailsImpl(Users user) {
         this.user = user;
     }
